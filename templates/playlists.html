@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Stepik DIY</title>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="display-1 mt-5"><b>Albums tracklists</b></h1>
+
+	<div class="row mt-5">
+
+<!-- 001 элемент-->
+	    <div class="col-md-8">
+	        <div class="card mb-8" >
+				<div class="card-body">
+	              <h5 class="card-title mt-3">{{ playlist['title'] }}</h5>
+					{% for track in playlist['tracks'] %}
+	              <p class="card-text"> {{ track }} </p>
+					{% endfor %}
+	          </div>
+	        </div>
+	    </div>
+
+
+	    <div class="col-md-4">
+			<h5 class="card-title mt-3">Всего альбомов: {{ albums|length }}</h5>
+			{% for album in albums %}
+	        <div class="card mb-4" >
+
+
+				<div class="card-body">
+	              <img src="{{albums[album]['cover']}}" alt="" class="img-fluid">
+
+	              <h5 class="card-title mt-3"><a href="/albums/{{album}}">
+
+					  {{ albums[album]['title'] }}
+
+				  </a></h5>
+	              <p class="card-text"> {{ albums[album]['id'] }} </p>
+	          </div>
+
+	        </div>
+			{% endfor %}
+	    </div>
+
+    </div><!-- /row -->
+</div><!-- /container -->
+
+</body>
+</html>
