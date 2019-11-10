@@ -64,6 +64,4 @@ def the_tag(tag):
 def page_not_found(error):
     return render_template('404.html')
 
-
-if name == '__main__':
-    app.run()
+app.run()
