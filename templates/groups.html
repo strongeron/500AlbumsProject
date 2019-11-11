@@ -12,21 +12,21 @@
     <h2 class="mb-5 ">Альбомы: {{group['group']}}</h2>
     <div class="row">
 
-{% for i in group['albums']%}
-                {% if i in albums %}
+{% for album in group['albums']%}
+                {% if album in albums %}
 	    <div class="col-md-4">
 	        <div class="card mb-4" >
 
 
 				<div class="card-body">
-	              <img src="{{albums[i]['cover']}}" alt="" class="img-fluid">
+	              <img src="{{albums[album]['cover']}}" alt="" class="img-fluid">
 
-	              <h5 class="card-title mt-3"><a href="/albums/{{i}}">
+	              <h5 class="card-title mt-3"><a href="/albums/{{album}}">
 
-					  {{ albums[i]['title'] }}
+					  {{ albums[album]['title'] }}
 
 				  </a></h5>
-	              <p class="card-text"> {{ albums[i]['id'] }} </p>
+	              <p class="card-text"> {{ albums[album]['id'] }} </p>
 	          </div>
 
 	        </div>
