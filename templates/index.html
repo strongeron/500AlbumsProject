@@ -15,11 +15,10 @@
 	<p>Rolling Stone’s definitive list of the 500 greatest albums of all time.</p>
 
 	<div class="mb-4 mt-5">
-		{% for tag in tags %}
-			<a class="btn btn-outline-primary mb-2 mr-2" href="/tags/{{tag}}" >{{ tag }}</a>
-		{% endfor %}
 		<!--Еще теги здесь-->
-
+		{% for group in groups %}
+			<a class="btn btn-outline-primary mb-2 mr-2" href="/groups/{{group}}" >{{ group }}</a>
+		{% endfor %}
 	</div>
 
 	<div class="row">

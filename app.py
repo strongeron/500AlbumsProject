@@ -4,6 +4,13 @@ tags = {
         "uk": {'tag': 'uk', "songs": "23 songs"},
         }
 
+groups = {
+        "beatles": {"group": "beatles", "albums": ["001","003"]},
+        "beach_boys": {"group": "Beach Boys", "albums": ["002"]},
+        "uk": {"group": "UK", "albums": ["001","002","003"]},
+        }
+
+
 albums = {
 "001": {'id': "001", 'title': "The Beatles, ‘Sgt. Pepper’s Lonely Hearts Club Band'",
             'cover': "https://www.rollingstone.com/wp-content/uploads/2018/06/sgt-peppers-e4860c12-4da1-4e6d-bb86-81698a88dbde.jpg?resize=1240,1240&w=385"},
@@ -34,7 +41,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-    return render_template('index.html', tags = tags, albums = albums)
+    return render_template('index.html', tags = tags, albums = albums, groups=groups)
 
 
 @app.route('/about')
@@ -54,11 +61,12 @@ def get_album(id):
 
 
 
-@app.route('/tags/<tag>')
-def the_tag(tag):
-    tag = tags.get(tag)
-    return render_template('tags.html', tag=tag)
 
+@app.route('/groups/<group>')
+def the_group(group):
+    group = groups.get(group)
+    playlist = playlists.get(id)
+    return render_template('groups.html', albums=albums, group=group, playlist=playlist)
 
 @app.errorhandler(404)
 def page_not_found(error):

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Stepik DIY</title>
+</head>
+<body>
+
+<div class="container">
+    <nav class="mt-5 mb-3"><a href="/">Назад, на главную</a></nav>
+    <h2 class="mb-5 ">Альбомы: {{group['group']}}</h2>
+    <div class="row">
+
+{% for i in group['albums']%}
+                {% if i in albums %}
+	    <div class="col-md-4">
+	        <div class="card mb-4" >
+
+
+				<div class="card-body">
+	              <img src="{{albums[i]['cover']}}" alt="" class="img-fluid">
+
+	              <h5 class="card-title mt-3"><a href="/albums/{{i}}">
+
+					  {{ albums[i]['title'] }}
+
+				  </a></h5>
+	              <p class="card-text"> {{ albums[i]['id'] }} </p>
+	          </div>
+
+	        </div>
+	    </div>
+                {% endif %}
+{% endfor %}
+
+    </div>
+</div>
+
+</body>
+</html>
