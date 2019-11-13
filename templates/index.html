@@ -15,35 +15,41 @@
 	<p>Rolling Stone’s definitive list of the 500 greatest albums of all time.</p>
 
 	<div class="mb-4 mt-5">
+		<h5 class="display-4 mb-4">Today's top 9 albums</h5>
+
 		<!--Еще теги здесь-->
 		{% for group in groups %}
 			<a class="btn btn-outline-primary mb-2 mr-2" href="/groups/{{group}}" >{{ group }}</a>
 		{% endfor %}
 	</div>
 
-	<div class="row">
-{% for album in albums %}
+
+		<div class="row">
+
+{% for sample in sorted_sample %}
 	    <div class="col-md-4">
 	        <div class="card mb-4" >
 
 
 				<div class="card-body">
-	              <img src="{{albums[album]['cover']}}" alt="" class="img-fluid">
+	              <img src="{{sample['Cover']}}" alt="" class="img-fluid">
 
 	              <h5 class="card-title mt-3"><a href="/albums/{{album}}">
 
-					  {{ albums[album]['title'] }}
+					  {{ sample['Artist '] }} - {{ sample['Album'] }}
 
 				  </a></h5>
-	              <p class="card-text"> {{ albums[album]['id'] }} </p>
+	              <p class="card-text"> {{ sample['id'] }} </p>
 	          </div>
 
 	        </div>
 	    </div>
 {% endfor %}
-	    <!--Еще карточки -->
 
+	    <!--Еще карточки -->
 	</div><!--/row -->
+
+		<a class="btn btn-outline-primary mb-2 mr-2" href="/all_albums">All Albums</a>
 
 	<hr>
 

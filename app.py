@@ -1,3 +1,7 @@
+import json
+import random
+from flask import Flask, render_template
+
 tags = {
         "beatles": {'tag': 'beatles', "songs": "6 songs"},
         "rock": {'tag': 'rock', "songs": "23 songs"},
@@ -35,14 +39,18 @@ playlists = {
                    "Yellow Submarine"]},
 }
 
-from flask import Flask, render_template
+with open("data.json", "r") as album_file:
+    all_albums = json.load(album_file)
+
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def main():
-    return render_template('index.html', tags = tags, albums = albums, groups=groups)
-
+    sample_size = 9
+    sorted_sample = [all_albums[i] for i in sorted(random.sample(range(len(all_albums)), sample_size))]
+    return render_template('index.html', tags = tags, groups=groups,all_albums=all_albums, sorted_sample=sorted_sample)
 
 @app.route('/about')
 def about():
@@ -53,6 +61,9 @@ def about():
 def list_albums():
     return render_template('albums.html', albums=albums)
 
+@app.route('/all_albums')
+def list_all_albums():
+    return render_template('all_albums.html', all_albums=all_albums)
 
 @app.route('/albums/<id>')
 def get_album(id):
