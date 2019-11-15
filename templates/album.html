@@ -9,7 +9,7 @@
 <body>
 <div class="container">
 	<nav class="mt-5 mb-3"><a href="/">Назад, на главную</a></nav>
-    <h1 class="display-1 mt-5"><b>{{album['id']}}: {{album['artist']}} - {{album['album']}}</b></h1>
+    <h1 class="display-1 mt-5"><b>{{album['artist']}} - {{album['album']}}</b></h1>
 	<div class="row mt-5">
 
 <!-- 001 элемент-->
@@ -17,6 +17,7 @@
 	        <div class="card mb-8" >
 				<div class="card-body">
                   <p><img src="{{album['cover']}}" alt="" class="img-fluid"></p>
+                    <p><b>{{album['id']}}/500</b></p>
                     <p>{{album['label_year']}}</p>
                     <p>{{album['description']}}</p>
                 </div>
