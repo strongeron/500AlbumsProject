@@ -18,12 +18,12 @@
 
 
 				<div class="card-body">
-	              <img src="{{album['Cover']}}" alt="" class="img-fluid">
+	              <img src="{{album['cover']}}" alt="" class="img-fluid">
 
-	              <h5 class="card-title mt-3"><a href="/albums/{{album}}">
-					  {{ album['Artist '] }} - {{ album['Album'] }}
+	              <h5 class="card-title mt-3"><a href="/albums/{{album['id']}}">
+					  {{ album['artist'] }} - {{ album['album'] }}
                   </a></h5>
-
+					<p class="card-text"> {{ album['label_year'] }} </p>
 	              <p class="card-text"> {{ album['id'] }} </p>
 	          </div>
 
