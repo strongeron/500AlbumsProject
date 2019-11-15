@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Stepik DIY</title>
+</head>
+
+<body>
+<div class="container">
+	<nav class="mt-5 mb-3"><a href="/">Назад, на главную</a></nav>
+    <h1 class="display-1 mt-5"><b>{{album['id']}}: {{album['artist']}} - {{album['album']}}</b></h1>
+	<div class="row mt-5">
+
+<!-- 001 элемент-->
+	    <div class="col-md-8">
+	        <div class="card mb-8" >
+				<div class="card-body">
+                  <p><img src="{{album['cover']}}" alt="" class="img-fluid"></p>
+                    <p>{{album['label_year']}}</p>
+                    <p>{{album['description']}}</p>
+                </div>
+	        </div>
+	    </div>
+
+
+	    <div class="col-md-4">
+			<h5 class="card-title mt-3">Album Tracklist</h5>
+                  <p><iframe frameborder="0" style="border:none;width:100%;height:1000px;" width="100%" height="1000" src="{{album['playlist']}}">Слушайте <a href='https://music.yandex.ru/album/5788435'>Sgt. Pepper's Lonely Hearts Club Band</a> — <a href='https://music.yandex.ru/artist/35004'>The Beatles</a> на Яндекс.Музыке</iframe></p>
+
+        </div>
+    </div><!-- /row -->
+</div><!-- /container -->
+
+</body>
+</html>

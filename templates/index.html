@@ -25,20 +25,21 @@
 
 
 		<div class="row">
-
 {% for sample in sorted_sample %}
 	    <div class="col-md-4">
 	        <div class="card mb-4" >
 
 
 				<div class="card-body">
-	              <img src="{{sample['Cover']}}" alt="" class="img-fluid">
+	              <img src="{{sample['cover']}}" alt="" class="img-fluid">
 
-	              <h5 class="card-title mt-3"><a href="/albums/{{album}}">
+	              <h5 class="card-title mt-3"><a href="/albums/{{sample['id']}}">
 
-					  {{ sample['Artist '] }} - {{ sample['Album'] }}
+					  {{ sample['artist'] }} - {{ sample['album'] }}
 
 				  </a></h5>
+					<p class="card-text"> {{ sample['label_year'] }} </p>
+
 	              <p class="card-text"> {{ sample['id'] }} </p>
 	          </div>
 
