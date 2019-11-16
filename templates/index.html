@@ -18,8 +18,8 @@
 		<h5 class="display-4 mb-4">Today's top 9 albums</h5>
 
 		<!--Еще теги здесь-->
-		{% for group in groups %}
-			<a class="btn btn-outline-primary mb-2 mr-2" href="/groups/{{group}}" >{{ group }}</a>
+		{% for album in all_albums[0:3] %}
+			<a class="btn btn-outline-primary mb-2 mr-2" href="/genres/{{genre}}" >{{ album['genre'] }}</a>
 		{% endfor %}
 	</div>
 

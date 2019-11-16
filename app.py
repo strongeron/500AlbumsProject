@@ -81,11 +81,12 @@ def get_album(id):
 
 
 
-@app.route('/groups/<group>')
-def the_group(group):
-    group = groups.get(group)
-    playlist = playlists.get(id)
-    return render_template('groups.html', albums=albums, group=group, playlist=playlist)
+@app.route('/genres/<genre>')
+def the_group(genre):
+    for album in all_albums:
+        if genre == album['genre']:
+            album['genre'] = list()
+        return render_template('groups.html', all_albums=all_albums, genre=list())
 
 @app.errorhandler(404)
 def page_not_found(error):
